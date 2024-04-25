@@ -1,5 +1,7 @@
-package com.planner_app.events;
+package com.planner_app.events.controller;
 
+import com.planner_app.events.model.UserEntity;
+import com.planner_app.events.service.UserService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
