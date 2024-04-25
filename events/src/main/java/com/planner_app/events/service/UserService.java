@@ -1,6 +1,8 @@
-package com.planner_app.events;
+package com.planner_app.events.service;
 
 
+import com.planner_app.events.model.UserEntity;
+import com.planner_app.events.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

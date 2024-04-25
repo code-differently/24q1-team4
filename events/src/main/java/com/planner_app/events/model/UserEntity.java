@@ -1,4 +1,4 @@
-package com.planner_app.events;
+package com.planner_app.events.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
