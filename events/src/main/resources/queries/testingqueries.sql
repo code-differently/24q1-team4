@@ -1,18 +1,20 @@
--- ALTER TABLE testingschema.events
--- MODIFY COLUMN eventId varchar(16);
+-- ALTER TABLE eventplanningschema.events
+-- MODIFY COLUMN eventId varchar(36);
 
-SELECT * FROM testingschema.events;
-SELECT * FROM testingschema.users;
+-- SELECT * FROM testingschema.events;
+-- SELECT * FROM eventplanningschema;
 
 -- DESC testingschema.events;
 
--- DROP TABLE testingschema.events;
+-- DROP TABLE eventplanningschema.events;
 
--- CREATE TABLE testingschema.events (
---     eventid int not null PRIMARY KEY,
+-- CREATE TABLE eventplanningschema.events (
+--     eventid varchar(16) not null PRIMARY KEY,
 --     eventdate int,
 --     headcount int
 -- );
 
--- INSERT INTO testingschema.events (eventid, eventdate, headcount)
--- VALUES (1, 11122024, 34);
+-- INSERT INTO eventplanningschema.events (eventid, eventdate, headcount)
+-- VALUES ("hola", 11122024, 34);
+
+-- SELECT * FROM eventplanningschema.events;
