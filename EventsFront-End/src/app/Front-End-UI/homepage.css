@@ -1,4 +1,4 @@
-fullpage {
+.fullpage {
     width: 100vw;
     height: 100vh;
 }
@@ -7,15 +7,12 @@ body {
     background-color: white;
     margin: 0;
     font-family: Arial, sans-serif;
-    width: 100vw;
-    height: 100vh;
 }
 
 .container {
     display: flex;
     min-height: 100vh;
     width: 100vw;
-    height: 100vh;
 }
 
 .sidebar {
@@ -24,7 +21,7 @@ body {
     width: 250px;
     background-color: #f2f2f2;
     padding: 20px;
-    overflow-y: auto; /*Adds scrollbar */
+    overflow-y: auto;
 }
 
 .sidebar h2 {
@@ -47,38 +44,43 @@ body {
     background-color: #e0e0e0;
 }
 
-.main-content h1{
+.main-content {
     text-align: center;
-    padding: 10px;
-}
-
-.header{ 
-    height: 200px;
-    text-align: center;
-}
-
-.logo-container{
-    display: inline-block;
-}
-.logo{
-    width: 280px;
-    height: 220px;
-}
-
-.outer-box {
     border: 1px solid #000;
     padding: 90px;
-     position: relative;
-overflow: hidden;    
+    position: relative;
+    overflow: hidden;  
+    
 }
+
+
+.header {
+    height: 120px; /* Reduced height */
+    text-align: center;
+}
+
+.logo-container {
+    float: left; /* Float the container to the left */
+    width: 150px; /* Set width */
+    height: 80px; /* Set height */
+    margin-right: 20px; /* Add some margin to separate it from other content */
+    margin-top: 20px; /* Adjust margin-top to move the video down */
+}
+
+.logo {
+    width: 100%; /* Ensure the video fits within its container */
+    height: 100%; /* Ensure the video fits within its container */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
 
 .background-image {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('imgs/balloons.webp');
+    width: 100vw;
+    height: 100vh;
+    background-image: url('balloons.webp');
     background-size: cover;
     background-position: center;
     z-index: -1; /* Set a negative z-index to send the image to the back */
@@ -93,22 +95,21 @@ overflow: hidden;
     background-color: #ffffff; 
     padding: 20px; 
     margin: 20px 0;
+    
 }
 
 .event-box {
-    
     background-color: rgb(212, 212, 212);
 }
 
-
-
-/* search button*/
-.search-button{
+/* search button */
+.search-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 0; 
 }
+
 .gg-search {
     box-sizing: border-box;
     position: relative;
@@ -121,9 +122,9 @@ overflow: hidden;
     margin-left: 190px;
     top: -4px;
     right: 10px;
-   }
-   
-   .gg-search::after {
+}
+
+.gg-search::after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -134,15 +135,17 @@ overflow: hidden;
     background: currentColor;
     transform: rotate(-45deg);
     top: 10px;
-    left: 12px
-   } 
-/* add button*/
+    left: 12px;
+}
+
+/* add button */
 .add-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
 }
+
 .gg-add-r {
     margin-left: auto;
     box-sizing: border-box;
@@ -152,11 +155,11 @@ overflow: hidden;
     height: 22px;
     border: 2px solid;
     transform: scale(var(--ggs,1));
-    border-radius: 4px
-   }
-   
-   .gg-add-r::after,
-   .gg-add-r::before {
+    border-radius: 4px;
+}
+
+.gg-add-r::after,
+.gg-add-r::before {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -166,15 +169,15 @@ overflow: hidden;
     background: currentColor;
     border-radius: 5px;
     top: 8px;
-    left: 4px
-   }
-   
-   .gg-add-r::after {
+    left: 4px;
+}
+
+.gg-add-r::after {
     width: 2px;
     height: 10px;
     top: 4px;
-    left: 8px
-   } 
+    left: 8px;
+}
 
 /* trash can */
 
@@ -184,8 +187,8 @@ overflow: hidden;
     background-color: transparent;
     border: none;
     cursor: pointer;
-
 }
+
 .gg-trash {
     margin-left: auto;
     box-sizing: border-box;
@@ -201,27 +204,27 @@ overflow: hidden;
     inset 2px 0 0;
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
-    margin-top: 4px
-   }
-   
-   .gg-trash::after,
-   .gg-trash::before {
+    margin-top: 4px;
+}
+
+.gg-trash::after,
+.gg-trash::before {
     content: "";
     display: block;
     box-sizing: border-box;
-    position: absolute
-   }
-   
-   .gg-trash::after {
+    position: absolute;
+}
+
+.gg-trash::after {
     background: currentColor;
     border-radius: 3px;
     width: 16px;
     height: 2px;
     top: -4px;
-    left: -5px
-   }
-   
-   .gg-trash::before {
+    left: -5px;
+}
+
+.gg-trash::before {
     width: 10px;
     height: 4px;
     border: 2px solid;
@@ -229,12 +232,12 @@ overflow: hidden;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     top: -7px;
-    left: -2px
-   } 
+    left: -2px;
+}
 
-   footer {
+footer {
     background-color: whitesmoke;
     color: #000000;
     padding: 20px;
     text-align: center;
-   }
+}
