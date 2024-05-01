@@ -1,32 +1,30 @@
 package com.planner_app.events.model;
 
 import java.time.LocalDate;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class EventEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id; // Use Long if ID is numeric and adjust accordingly
+    private String id; // ID as a String
 
     private String name;
     private LocalDate eventDate;
     private int headCount;
+    @Column(length = 500)
+    private String description;
 
-    // Constructors
     public EventEntity() {}
 
-    // Overloaded constructor for convenience in tests
-    public EventEntity(String name) {
+    public EventEntity(String name, LocalDate eventDate, int headCount, String description) {
         this.name = name;
+        this.eventDate = eventDate;
+        this.headCount = headCount;
+        this.description = description;
     }
 
-    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -57,5 +55,13 @@ public class EventEntity {
 
     public void setHeadCount(int headCount) {
         this.headCount = headCount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
