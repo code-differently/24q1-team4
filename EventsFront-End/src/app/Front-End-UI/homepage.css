@@ -120,7 +120,7 @@ body {
     border: 2px solid;
     border-radius: 100%;
     margin-left: 190px;
-    top: -4px;
+    top: -26px;
     right: 10px;
 }
 
@@ -156,6 +156,7 @@ body {
     border: 2px solid;
     transform: scale(var(--ggs,1));
     border-radius: 4px;
+    top: -22px;
 }
 
 .gg-add-r::after,
