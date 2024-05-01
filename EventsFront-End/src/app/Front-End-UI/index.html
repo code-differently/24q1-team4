@@ -4,43 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link rel="stylesheet" href="homepage.css" />
 </head>
 <body>
-    <header class="header" >
+    <header class="header">
         <div class="logo-container">
-         <video class="logo" autoplay muted>
-             <source src="Planned Perffectly Logo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+            <video class="logo" autoplay muted>
+                <source src="Planned Perffectly Logo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            </div>
+
+            <nav class="z-depth-0 white lighten-4">
+                
+                <div class="nav-wrapper container">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li class="logged-in">
+                            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                        </li>
+                        <li class="logged-in">
+                            <a href="#" class="grey-text" id="logout">Logout</a>
+                        </li>
+                        <li class="logged-out">
+                            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                        </li>
+                        <li class="logged-out">
+                            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+    
+    </header>
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4>Sign up</h4><br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+            </form>
+        </div>
+    </div>
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4><br />
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+        <div class="modal-content center-align">
+            <h4>Account details</h4><br />
+            <div class="account-details"></div>
+        </div>
+    </div>
 </div>
-</header>
     <div class="container">
         <div class="sidebar">
+            <div class="topnav">
+                <input type="text" placeholder="Search for event">
+            </div>
             <button class="search-button"><i class="gg-search"></i></button>
             <button class="add-button"><i class="gg-add-r"></i></button>
             <h2>Events</h2>
             <ul>
                 <li class="event-box">Event 1</li>
-        <li class="event-box" class="gg-add-r">Event 2</li>
-        <li class="event-box" class="gg-add-r">Event 3</li>
-        <li class="event-box" class="gg-add-r">Event 4</li>
-        <li class="event-box" class="gg-add-r">Event 5</li>
+                <li class="event-box">Event 2</li>
+                <li class="event-box">Event 3</li>
+                <li class="event-box">Event 4</li>
+                <li class="event-box">Event 5</li>
                 <!-- Add more events here -->
             </ul>
         </div>
         <div class="main-content">
             <div class="outer-box">
                 <div class="background-image"></div>
-            <div class="inner-box">
-               <button class="trash-button"><i class="gg-trash"></i></button>
-               <h2>Event details </h2> 
+                <div class="inner-box">
+                    <button class="trash-button"><i class="gg-trash"></i></button>
+                    <h2>Event details </h2>
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <footer>
         "Planned Perfectly Events 2024"
     </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
