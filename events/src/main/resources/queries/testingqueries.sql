@@ -18,3 +18,4 @@
 -- VALUES ("hola", 11122024, 34);
 
 -- SELECT * FROM eventplanningschema.events;
+

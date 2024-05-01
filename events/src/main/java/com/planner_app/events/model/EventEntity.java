@@ -1,40 +1,53 @@
 package com.planner_app.events.model;
 
+import java.time.LocalDate;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "events")
-public class EventEntity { 
+public class EventEntity {
+
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
-    @Column(name="eventid")
-    public String eventId;
-    @Column(name="eventdate")
-    public int eventDate;
-    @Column(name="headcount")
-    public int headCount;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id; // Use Long if ID is numeric and adjust accordingly
 
-    public String getEventId() {
-        return eventId;
+    private String name;
+    private LocalDate eventDate;
+    private int headCount;
+
+    // Constructors
+    public EventEntity() {}
+
+    // Overloaded constructor for convenience in tests
+    public EventEntity(String name) {
+        this.name = name;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    // Getters and Setters
+    public String getName() {
+        return name;
     }
 
-    public int getEventDate() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public LocalDate getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(int eventDate) {
+    public void setEventDate(LocalDate eventDate) {
         this.eventDate = eventDate;
     }
 
