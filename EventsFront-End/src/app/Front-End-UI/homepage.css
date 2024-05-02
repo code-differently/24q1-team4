@@ -78,8 +78,8 @@ body {
 }
 
 .logo {
-    width: 100%; /* Ensure the video fits within its container */
-    height: 100%; /* Ensure the video fits within its container */
+    width: 150%; /* Ensure the video fits within its container */
+    height: 150%; /* Ensure the video fits within its container */
     object-fit: cover; /* Maintain aspect ratio */
 }
 
@@ -132,14 +132,18 @@ nav {
   }
   
   .nav-wrapper {
+    flex: auto;
+    justify-content: space-evenly;
+    
     padding: 0px 20px; /* Padding for the navigation wrapper */
+
   }
   
   /* List styles */
   ul {
     list-style-type: none; /* Remove bullets */
     margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    padding: 40px; /* Remove default padding */
   }
   
   /* List item styles */
@@ -157,6 +161,17 @@ nav {
   
   a:hover {
     color: #333; /* Change link color on hover */
+  }
+
+  .topnav {
+ margin-left: -25px;
+  display: block;
+  color: #5271ff;
+  text-align: left;
+  padding: 11px 16px;
+  text-decoration: #5271ff;
+  font-size: 17px;
+  width: 200px;
   }
   
 /* search button */
@@ -176,8 +191,8 @@ nav {
     height: 16px;
     border: 2px solid;
     border-radius: 100%;
-    margin-left: 190px;
-    top: -26px;
+    margin-left: 167px;
+    top: -39px;
 
 }
 
@@ -217,7 +232,8 @@ nav {
 }
 
 .gg-add-r {
-    margin-left: auto;
+    margin-left: 196px;
+    margin-top: -96.5px;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -226,7 +242,7 @@ nav {
     border: 2px solid;
     transform: scale(var(--ggs,1));
     border-radius: 4px;
-    top: -22px;
+    top: 17px;
 }
 
 .gg-add-r::after,
@@ -249,6 +265,56 @@ nav {
     top: 4px;
     left: 8px;
 }
+
+
+/* weather button*/
+.cloud-button {
+    margin-left: 687px;
+    margin-top: 30px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.gg-cloud {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 8px;
+    height: 2px;
+    background: currentColor;
+    margin-bottom: -20px
+   }
+   
+   .gg-cloud::after,
+   .gg-cloud::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border: 2px solid;
+    box-sizing: border-box;
+    bottom: 0
+   }
+   
+   .gg-cloud::before {
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-right: 0;
+    left: -6px;
+    width: 7px;
+    height: 12px
+   }
+   
+   .gg-cloud::after {
+    width: 16px;
+    height: 16px;
+    border-radius: 100px;
+    border-left-color: transparent;
+    right: -8px;
+    transform: rotate(-45deg)
+   } 
 
 /* trash can */
 
@@ -312,4 +378,5 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
 
