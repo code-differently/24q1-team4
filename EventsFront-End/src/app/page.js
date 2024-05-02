@@ -77,32 +77,7 @@ export default function Page() {
 
   return (
     <>
-      <header className="header">
-        <div className="logo-container">
-            <video className="logo" autoplay="true" muted>
-                <source src="logo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <nav className="z-depth-0 white lighten-4">
-            <div className="nav-wrapper container">
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li className="logged-in">
-                        <a href="#" className="grey-text modal-trigger" data-target="modal-account">Account</a>
-                    </li>
-                    <li className="logged-in">
-                        <a href="#" className="grey-text" id="logout">Logout</a>
-                    </li>
-                    <li className="logged-out">
-                        <a href="#" className="grey-text modal-trigger" data-target="modal-login">Login</a>
-                    </li>
-                    <li className="logged-out">
-                        <a href="#" className="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
-                    </li>
-                </ul>
-            </div>
-          </nav>
-      </header>
+      <Header />
 
       <div id="modal-signup" className="modal">
           <div className="modal-content">
@@ -110,11 +85,11 @@ export default function Page() {
               <form id="signup-form">
                   <div className="input-field">
                       <input type="email" id="signup-email" required />
-                      <label for="signup-email">Email address</label>
+                      <label htmlFor="signup-email">Email address</label>
                   </div>
                   <div className="input-field">
                       <input type="password" id="signup-password" required />
-                      <label for="signup-password">Choose password</label>
+                      <label htmlFor="signup-password">Choose password</label>
                   </div>
                   <button className="btn yellow darken-2 z-depth-0">Sign up</button>
               </form>
@@ -127,11 +102,11 @@ export default function Page() {
               <form id="login-form">
                   <div className="input-field">
                       <input type="email" id="login-email" required />
-                      <label for="login-email">Email address</label>
+                      <label htmlFor="login-email">Email address</label>
                   </div>
                   <div className="input-field">
                       <input type="password" id="login-password" required />
-                      <label for="login-password">Your password</label>
+                      <label htmlFor="login-password">Your password</label>
                   </div>
                   <button className="btn yellow darken-2 z-depth-0">Login</button>
               </form>

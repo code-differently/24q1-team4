@@ -61,29 +61,6 @@ body {
     
 }
 
-
-.header {
-    height: 120px; /* Reduced height */
-    text-align: center;
-    display:  flex;
-    align-items: center;
-}
-
-.logo-container {
-    float: left; /* Float the container to the left */
-    width: 150px; /* Set width */
-    height: 90px; /* Set height */
-    margin-right: 20px; /* Add some margin to separate it from other content */
-    margin-top: 20px; /* Adjust margin-top to move the video down */
-}
-
-.logo {
-    width: 150%; /* Ensure the video fits within its container */
-    height: 150%; /* Ensure the video fits within its container */
-    object-fit: cover; /* Maintain aspect ratio */
-}
-
-
 .background-image {
     position: absolute;
     width: 100vw;
