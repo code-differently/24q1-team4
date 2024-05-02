@@ -91,12 +91,10 @@ export default function Page() {
 
       <div className={styles.container}>
           <Sidebar onEventSelected={onEventSelected} />
-          <MainContent event={selectedEvent} />
+          {selectedEvent && <MainContent event={selectedEvent} />}
       </div>
 
-      <footer>
-          "Planned Perfectly Events 2024"
-      </footer>
+      <Footer />
     </>
   );
 }

@@ -33,10 +33,3 @@ nav {
   a:hover {
     color: #333; /* Change link color on hover */
   }
-
-footer {
-    background-color: whitesmoke;
-    color: #000000;
-    padding: 20px;
-    text-align: center;
-}
