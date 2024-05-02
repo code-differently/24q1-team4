@@ -14,31 +14,27 @@
                 <source src="Planned Perffectly Logo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-
+        </div>
+        <nav class="z-depth-0 white lighten-4">
+            <div class="nav-wrapper container">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="logged-in">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                    </li>
+                    <li class="logged-in">
+                        <a href="#" class="grey-text" id="logout">Logout</a>
+                    </li>
+                    <li class="logged-out">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                    </li>
+                    <li class="logged-out">
+                        <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                    </li>
+                </ul>
             </div>
-
-            <nav class="z-depth-0 white lighten-4">
-                
-                <div class="nav-wrapper container">
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li class="logged-in">
-                            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
-                        </li>
-                        <li class="logged-in">
-                            <a href="#" class="grey-text" id="logout">Logout</a>
-                        </li>
-                        <li class="logged-out">
-                            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
-                        </li>
-                        <li class="logged-out">
-                            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-    
+        </nav>
     </header>
+
     <!-- SIGN UP MODAL -->
     <div id="modal-signup" class="modal">
         <div class="modal-content">
@@ -56,6 +52,7 @@
             </form>
         </div>
     </div>
+
     <!-- LOGIN MODAL -->
     <div id="modal-login" class="modal">
         <div class="modal-content">
@@ -81,7 +78,7 @@
             <div class="account-details"></div>
         </div>
     </div>
-</div>
+
     <div class="container">
         <div class="sidebar">
             <div class="topnav">
@@ -99,18 +96,25 @@
                 <!-- Add more events here -->
             </ul>
         </div>
+
         <div class="main-content">
             <div class="outer-box">
-                <div class="background-image">
-                </div>
-                <div class="inner-box">
-                    <button class="trash-button"><i class="gg-trash"></i></button>
-                    <button class="cloud-button"><i class="gg-cloud"></i></button>
-                    <h2>Event details </h2>
+                <div class="background-image"></div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">You're Invited</div>
+                        <div class="card-back">
+                            <h2>Event Name</h2>
+                            <p>Event Details</p>
+                            <button class="trash-button"><i class="gg-trash"></i></button>
+                            <button class="cloud-button"><i class="gg-cloud"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <footer>
         "Planned Perfectly Events 2024"
     </footer>
