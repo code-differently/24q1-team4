@@ -1,4 +1,5 @@
 "use client"
+import './page.module.scss';
 // import EditEvent from './components/EditEvent'; // Import the EditEvent component
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
@@ -8,7 +9,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 
 
-export default function Home() {
+export default function Page() {
   const [fetchedEventData, setFetchedEventData] = useState(null);
   const [newEvent, setNewEvent] = useState({
     eventId: '',
@@ -74,22 +75,116 @@ export default function Home() {
   };
 
 
-return (
-  <main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="index.js"></script>
-      <Header />
-      <Modals />
-      <div className="container">
-        <Sidebar 
-          toggleMainContentVisibility={toggleMainContentVisibility} 
-          manageEventButtonClick={manageEventButtonClick} 
-        />
-        {isMainContentVisible && <MainContent showEventDetails={showEventDetails} fetchedEventData={fetchedEventData} />}
+  return (
+    <>
+      <header className="header">
+        <div className="logo-container">
+            <video className="logo" autoplay="true" muted>
+                <source src="logo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <nav className="z-depth-0 white lighten-4">
+            <div className="nav-wrapper container">
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <li className="logged-in">
+                        <a href="#" className="grey-text modal-trigger" data-target="modal-account">Account</a>
+                    </li>
+                    <li className="logged-in">
+                        <a href="#" className="grey-text" id="logout">Logout</a>
+                    </li>
+                    <li className="logged-out">
+                        <a href="#" className="grey-text modal-trigger" data-target="modal-login">Login</a>
+                    </li>
+                    <li className="logged-out">
+                        <a href="#" className="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+          </nav>
+      </header>
+
+      <div id="modal-signup" className="modal">
+          <div className="modal-content">
+              <h4>Sign up</h4><br />
+              <form id="signup-form">
+                  <div className="input-field">
+                      <input type="email" id="signup-email" required />
+                      <label for="signup-email">Email address</label>
+                  </div>
+                  <div className="input-field">
+                      <input type="password" id="signup-password" required />
+                      <label for="signup-password">Choose password</label>
+                  </div>
+                  <button className="btn yellow darken-2 z-depth-0">Sign up</button>
+              </form>
+          </div>
       </div>
-      <Footer />
-</main>
-);
+
+      <div id="modal-login" className="modal">
+          <div className="modal-content">
+              <h4>Login</h4><br />
+              <form id="login-form">
+                  <div className="input-field">
+                      <input type="email" id="login-email" required />
+                      <label for="login-email">Email address</label>
+                  </div>
+                  <div className="input-field">
+                      <input type="password" id="login-password" required />
+                      <label for="login-password">Your password</label>
+                  </div>
+                  <button className="btn yellow darken-2 z-depth-0">Login</button>
+              </form>
+          </div>
+      </div>
+
+      <div id="modal-account" className="modal">
+          <div className="modal-content center-align">
+              <h4>Account details</h4><br />
+              <div className="account-details"></div>
+          </div>
+      </div>
+
+      <div className="container">
+          <div className="sidebar">
+              <div className="topnav">
+                  <input type="text" placeholder="Search for event" />
+              </div>
+              <button className="search-button"><i className="gg-search"></i></button>
+              <button className="add-button"><i className="gg-add-r"></i></button>
+              <h6>Events</h6>
+              <ul>
+                  <li className="event-box">Event 1</li>
+                  <li className="event-box">Event 2</li>
+                  <li className="event-box">Event 3</li>
+                  <li className="event-box">Event 4</li>
+                  <li className="event-box">Event 5</li>
+              </ul>
+          </div>
+
+          <div className="main-content">
+              <div className="outer-box">
+                  <div className="background-image"></div>
+                  <div className="card">
+                      <div className="card-inner">
+                          <div className="card-front">You're Invited</div>
+                          <div className="card-back">
+                              <h2>Event Name</h2>
+                              <p>Event Details</p>
+                              <button className="trash-button"><i className="gg-trash"></i></button>
+                              <button className="cloud-button"><i className="gg-cloud"></i></button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <footer>
+          "Planned Perfectly Events 2024"
+      </footer>
+    </>
+  );
 }
     
 
