@@ -1,52 +1,52 @@
 package com.planner_app.events.model;
 
-import java.time.LocalDate;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class EventEntity {
+@Table(name = "events")
+public class EventEntity { 
     @Id
-    private String id; // ID as a String
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    @Column(name="eventid")
+    public String eventId;
+    @Column(name="eventdate")
+    public int eventDate;
+    @Column(name="headcount")
+    public int headCount;
+    @Column(name="eventname")
+    public String eventName;
 
-    private String name;
-    private LocalDate eventDate;
-    private int headCount;
-    @Column(length = 500)
-    private String description;
 
-    public EventEntity() {}
-
-    public EventEntity(String name, LocalDate eventDate, int headCount, String description) {
-        this.name = name;
-        this.eventDate = eventDate;
-        this.headCount = headCount;
-        this.description = description;
+    public String getEventId() {
+        return eventId;
     }
 
-    public String getName() {
-        return name;
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public LocalDate getEventDate() {
+    public int getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(LocalDate eventDate) {
+    public void setEventDate(int eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
     public int getHeadCount() {
@@ -55,13 +55,5 @@ public class EventEntity {
 
     public void setHeadCount(int headCount) {
         this.headCount = headCount;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
