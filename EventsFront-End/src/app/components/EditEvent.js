@@ -12,7 +12,7 @@ export default function EditEvent() {
 
   const fetchEvent = async () => {
     // Fetch the existing event data from the backend
-    fetch("http://127.0.0.1:8080/events/${id}") // Assuming eventId 1 for demonstration
+    fetch("http://127.0.0.1:8082/events/${id}") // Assuming eventId 1 for demonstration
       .then((response) => response.json())
       .then((data) => {
         setEventId(data.eventId);
@@ -35,7 +35,7 @@ export default function EditEvent() {
     };
 
     // Send a PUT request to update the event
-    fetch("http://127.0.0.1:8080/events/" + eventId, {
+    fetch("http://127.0.0.1:8082/events/" + eventId, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

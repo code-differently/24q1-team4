@@ -1,9 +1,14 @@
 "use client"
-import EditEvent from './editevent'; // Import the EditEvent component
-import React, { useState } from 'react';
+// import EditEvent from './components/EditEvent'; // Import the EditEvent component
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Modals from './components/Modals';
+import Sidebar from './components/Sidebar';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
+
 
 export default function Home() {
-  const [fetchedUserData, setFetchedUserData] = useState(null);
   const [fetchedEventData, setFetchedEventData] = useState(null);
   const [newEvent, setNewEvent] = useState({
     eventId: '',
@@ -11,28 +16,15 @@ export default function Home() {
     headCount: ''
   });
   const [selectedEventId, setSelectedEventId] = useState(null);
-
-
-  const manageUserButtonClick = async () => {
-    console.log("Calling User Backend");
-    fetch("http://127.0.0.1:8080/users")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("User Data:", data);
-        setFetchedUserData(data); 
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  };
-
+  const [showEventDetails, setShowEventDetails] = useState(false);
   const manageEventButtonClick = async () => {
     console.log("Calling Event Backend");
-    fetch("http://127.0.0.1:8080/events")
+    fetch("http://127.0.0.1:8082/events")
       .then((response) => response.json())
       .then((data) => {
         console.log("Event Data:", data);
-        setFetchedEventData(data); 
+        setFetchedEventData(data);
+        toggleEventDetails();  
       })
       .catch((error) => {
         console.error("Error fetching event data:", error);
@@ -40,7 +32,7 @@ export default function Home() {
   };
   const createEventButtonClick = async () => {
     console.log("Creating Event");
-    fetch("http://127.0.0.1:8080/test-create-event", {
+    fetch("http://127.0.0.1:8082/test-create-event", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +42,6 @@ export default function Home() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Created Event Data:", data);
-        // Optionally update UI or handle response
       })
       .catch((error) => {
         console.error("Error creating event:", error);
@@ -71,74 +62,55 @@ export default function Home() {
     setSelectedEventId(eventId); // Set selected eventId when clicked
   };
 
-  const deleteEvent = (eventId) => {
-    fetch(`http://127.0.0.1:8080/events/${eventId}`, {
-      method: 'DELETE'
-    })
-    .then(response => {
-      if (response.ok) {
-        // If deletion is successful, fetch event data again to update the UI
-        manageEventButtonClick();
-      } else {
-        throw new Error('Failed to delete event');
-      }
-    })
-    .catch(error => {
-      console.error('Error deleting event:', error);
-    });
+  const toggleEventDetails = () => {
+    setShowEventDetails(!showEventDetails);
   };
 
-  return (
-    <main className="users">
-      <h1 className="title">Perfectly Planned Events</h1>
-      <button className="backend-button" onClick={manageUserButtonClick}>Get User Data</button>
-      <button className="backend-button" onClick={manageEventButtonClick}>Get Event Data</button>
-      <button onClick={() => deleteEvent(item.eventId)}>Delete</button>
+  const [isMainContentVisible, setIsMainContentVisible] = useState(false);
 
-      <form onSubmit={handleSubmit}>
+
+  const toggleMainContentVisibility = () => {
+    setIsMainContentVisible(!isMainContentVisible);
+  };
+
+
+return (
+  <main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="index.js"></script>
+      <Header />
+      <Modals />
+      <div className="container">
+        <Sidebar 
+          toggleMainContentVisibility={toggleMainContentVisibility} 
+          manageEventButtonClick={manageEventButtonClick} 
+        />
+        {isMainContentVisible && <MainContent showEventDetails={showEventDetails} fetchedEventData={fetchedEventData} />}
+      </div>
+      <Footer />
+</main>
+);
+}
+    
+
+// DONT DELETE; This is the functionality for Create Event & Edit Event.
+
+      {/* <form onSubmit={handleSubmit}>
       <div className="input-fields">
         <input type="text" name="eventId" placeholder="Event ID" value={newEvent.eventId} onChange={handleInputChange} />
         <input type="text" name="eventDate" placeholder="Event Date" value={newEvent.eventDate} onChange={handleInputChange} />
         <input type="text" name="headCount" placeholder="Head Count" value={newEvent.headCount} onChange={handleInputChange} />
-      </div>
+      </div> */}
       
       {/* Button to submit the form */}
-      <button type="submit" className="backend-button">Create Event</button>
+      {/* <button type="submit" className="backend-button">Create Event</button>
     </form>
-    
-      {/* Display fetched user data */}
-      {fetchedUserData && (
-        <div className="displayingbackend">
-          <h2 className="mydata">Fetched User Data</h2>
-          <ul>
-            {fetchedUserData.map((item) => (
-              <li key={item.idusers}>
-                <strong>ID:</strong> {item.idusers}, <strong>Username:</strong> {item.username}, <strong>Password:</strong> {item.password}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+     */}
 
     {/* Display fetched event data */}
-{fetchedEventData && (
-  <div className="displayingbackend">
-    <h2 className="mydata">Fetched Event Data</h2>
-    <ul>
-      {fetchedEventData.map((item) => (
-        <li key={item.eventId}>
-          <strong>Event ID:</strong> {item.eventId}, <strong>Date:</strong> {item.eventDate}, <strong>Headcount:</strong> {item.headCount}
-        </li>
-      ))}
-    </ul>
-    
-  </div>
 
-)}
      {/* Pass selected eventId to EditEvent component */}
-     {selectedEventId && <EditEvent eventId={selectedEventId} />}
+     {/* {selectedEventId && <EditEvent eventId={selectedEventId} />} */}
            {/* Render the EditEvent component */}
-           <EditEvent />
-    </main>
-  );
-}
+           {/* <EditEvent /> */}
+ 
