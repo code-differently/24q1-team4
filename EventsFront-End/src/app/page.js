@@ -74,6 +74,14 @@ export default function Page() {
     setIsMainContentVisible(!isMainContentVisible);
   };
 
+  // Track the selected event.
+  const [selectedEvent, setSelectedEvent] = useState(undefined);
+
+  // Update the selected event when one is selected.
+  const onEventSelected = (event) => {
+    setSelectedEvent(event);
+  };
+
 
   return (
     <>
@@ -82,12 +90,8 @@ export default function Page() {
       <Modals />
 
       <div className={styles.container}>
-          <Sidebar 
-            toggleMainContentVisibility={toggleMainContentVisibility} 
-            manageEventButtonClick={manageEventButtonClick}
-          />
-
-          <MainContent />
+          <Sidebar onEventSelected={onEventSelected} />
+          <MainContent event={selectedEvent} />
       </div>
 
       <footer>

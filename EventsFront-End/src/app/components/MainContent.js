@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MainContent.module.css';
 
-export default function MainContent({ showEventDetails, fetchedEventData }) {
+export default function MainContent({ event }) {
   return (
     <div className={styles['main-content']}>
         <div className={styles['outer-box']}>
@@ -10,7 +10,7 @@ export default function MainContent({ showEventDetails, fetchedEventData }) {
                 <div className={styles['card-inner']}>
                     <div className={styles['card-front']}>You're Invited</div>
                     <div className={styles['card-back']}>
-                        <h2>Event Name</h2>
+                        <h2>{event?.eventName}</h2>
                         <p>Event Details</p>
                         <button className={styles['trash-button']}><i className={styles['gg-trash']}></i></button>
                         <button className={styles['cloud-button']}><i className={styles['gg-cloud']}></i></button>
