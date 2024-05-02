@@ -11,8 +11,8 @@ export default function Header() {
           </video>
       </div>
       <nav className="z-depth-0 white lighten-4">
-          <div className="nav-wrapper container">
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <div className={`${styles['nav-wrapper']} ${styles['container']}`}>
+              <ul id="nav-mobile" className={`${styles['nav-list']} hide-on-med-and-down`}>
                   <li className="logged-in">
                       <a href="#" className="grey-text modal-trigger" data-target="modal-account">Account</a>
                   </li>

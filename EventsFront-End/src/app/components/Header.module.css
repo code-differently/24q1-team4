@@ -18,3 +18,21 @@
     height: 150%; /* Ensure the video fits within its container */
     object-fit: cover; /* Maintain aspect ratio */
 }
+
+.nav-wrapper {
+    flex: auto;
+    justify-content: space-evenly;
+    
+    padding: 0px 20px; /* Padding for the navigation wrapper */
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    flex: 1;
+    min-height: 100vh;
+    margin-left: 0 !important;
+}

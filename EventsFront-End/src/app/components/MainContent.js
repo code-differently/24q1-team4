@@ -1,32 +1,23 @@
 import React from 'react';
+import styles from './MainContent.module.css';
 
 export default function MainContent({ showEventDetails, fetchedEventData }) {
   return (
-    <div className="main-content">
-      <div className="container">
-        <div className="background-image"></div>
-        <div className="card">
-          <div className="card-inner">
-            <div className="card-front">You're Invited</div>
-            <div className="card-back">
-              {showEventDetails && fetchedEventData && (
-                <div className="displayingbackend">
-                  <h2 className="mydata">Events Details</h2>
-                  <ul>
-                    {fetchedEventData.map((item) => (
-                      <li key={item.eventId}>
-                       <strong>{item.eventName}</strong>, <strong>Date:</strong> {item.eventDate}, <strong>Headcount:</strong> {item.headCount}
-                      </li>
-                    ))}
-                  </ul>
+    <div className={styles['main-content']}>
+        <div className={styles['outer-box']}>
+            <div className={styles['background-image']}></div>
+            <div className={styles.card}>
+                <div className={styles['card-inner']}>
+                    <div className={styles['card-front']}>You're Invited</div>
+                    <div className={styles['card-back']}>
+                        <h2>Event Name</h2>
+                        <p>Event Details</p>
+                        <button className={styles['trash-button']}><i className={styles['gg-trash']}></i></button>
+                        <button className={styles['cloud-button']}><i className={styles['gg-cloud']}></i></button>
+                    </div>
                 </div>
-              )}
-              <button className="trash-button"><i className="gg-trash"></i></button>
-              <button className="cloud-button"><i className="gg-cloud"></i></button>
             </div>
-          </div>
         </div>
-      </div>
     </div>
   );
 }

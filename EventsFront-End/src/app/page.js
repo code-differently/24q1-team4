@@ -1,5 +1,5 @@
 "use client"
-import './page.module.scss';
+import styles from './page.module.scss';
 // import EditEvent from './components/EditEvent'; // Import the EditEvent component
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
@@ -81,39 +81,13 @@ export default function Page() {
 
       <Modals />
 
-      <div className="container">
-          <div className="sidebar">
-              <div className="topnav">
-                  <input type="text" placeholder="Search for event" />
-              </div>
-              <button className="search-button"><i className="gg-search"></i></button>
-              <button className="add-button"><i className="gg-add-r"></i></button>
-              <h6>Events</h6>
-              <ul>
-                  <li className="event-box">Event 1</li>
-                  <li className="event-box">Event 2</li>
-                  <li className="event-box">Event 3</li>
-                  <li className="event-box">Event 4</li>
-                  <li className="event-box">Event 5</li>
-              </ul>
-          </div>
+      <div className={styles.container}>
+          <Sidebar 
+            toggleMainContentVisibility={toggleMainContentVisibility} 
+            manageEventButtonClick={manageEventButtonClick}
+          />
 
-          <div className="main-content">
-              <div className="outer-box">
-                  <div className="background-image"></div>
-                  <div className="card">
-                      <div className="card-inner">
-                          <div className="card-front">You're Invited</div>
-                          <div className="card-back">
-                              <h2>Event Name</h2>
-                              <p>Event Details</p>
-                              <button className="trash-button"><i className="gg-trash"></i></button>
-                              <button className="cloud-button"><i className="gg-cloud"></i></button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+          <MainContent />
       </div>
 
       <footer>
