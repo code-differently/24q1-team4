@@ -1,4 +1,5 @@
 "use client"
+import styles from './page.module.scss';
 // import EditEvent from './components/EditEvent'; // Import the EditEvent component
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
@@ -8,7 +9,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 
 
-export default function Home() {
+export default function Page() {
   const [fetchedEventData, setFetchedEventData] = useState(null);
   const [newEvent, setNewEvent] = useState({
     eventId: '',
@@ -73,23 +74,29 @@ export default function Home() {
     setIsMainContentVisible(!isMainContentVisible);
   };
 
+  // Track the selected event.
+  const [selectedEvent, setSelectedEvent] = useState(undefined);
 
-return (
-  <main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="index.js"></script>
+  // Update the selected event when one is selected.
+  const onEventSelected = (event) => {
+    setSelectedEvent(event);
+  };
+
+
+  return (
+    <>
       <Header />
+
       <Modals />
-      <div className="container">
-        <Sidebar 
-          toggleMainContentVisibility={toggleMainContentVisibility} 
-          manageEventButtonClick={manageEventButtonClick} 
-        />
-        {isMainContentVisible && <MainContent showEventDetails={showEventDetails} fetchedEventData={fetchedEventData} />}
+
+      <div className={styles.container}>
+          <Sidebar onEventSelected={onEventSelected} />
+          {selectedEvent && <MainContent event={selectedEvent} />}
       </div>
+
       <Footer />
-</main>
-);
+    </>
+  );
 }
     
 

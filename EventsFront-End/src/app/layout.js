@@ -1,7 +1,9 @@
 // layout.js
 import React from 'react';
 import { Inter } from 'next/font/google';
+import 'materialize-css/dist/css/materialize.min.css';
 import './globals.css';
+import styles from './layout.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,9 +14,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={styles.fullpage}>
       <body>
         {children}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       </body>
     </html>
   );
