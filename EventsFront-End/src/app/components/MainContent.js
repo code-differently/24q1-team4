@@ -49,11 +49,13 @@ function MainContent({ event }) {
         fetchWeather();  
     }, []);
 
+
     return (
         <div className={styles['main-content']}>
             <div className={styles['outer-box']}>
                 <div className={styles.card}>
                     <div className={styles['card-inner']}>
+
                         <div className={styles['card-front']}>You're Invited</div>
                         <div className={styles['card-back']}>
                             <h2>{event?.eventName}</h2>
@@ -71,6 +73,7 @@ function MainContent({ event }) {
                                     <p>Condition: {weather.description}</p>
                                 </div>
                             )}
+
                         </div>
                     </div>
                 </div>

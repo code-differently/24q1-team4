@@ -64,7 +64,6 @@ public class EventsController {
         return new ResponseEntity<>(savedEvent, HttpStatus.OK);
     }
 
-
     @DeleteMapping("/events/{eventId}")
     public ResponseEntity<Void> deleteEvent(@PathVariable String eventId) {
         try {
