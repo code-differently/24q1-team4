@@ -13,6 +13,7 @@ export default function MainContent({ event }) {
     return (
         <div className={styles['main-content']}>
             <div className={styles['outer-box']}>
+            <div className={styles['background-image']}></div>
                 <div className={styles.card}>
                     <div className={styles['card-inner']}>
                         <div className={styles['card-front']}>
