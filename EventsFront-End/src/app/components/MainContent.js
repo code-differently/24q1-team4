@@ -25,7 +25,7 @@ function MainContent({ event }) {
     };
 
     const fetchWeather = () => {
-        const apiKey = 'b1c5b89a28a49878d7596078785708fb'; 
+        const apiKey = ''; 
         // Wilmington, Delaware coordinates
         const lat = 39.7459;
         const lon = -75.5466;
