@@ -16,7 +16,3 @@ Unlike similar apps with overwhelming features that can confuse users, we focus 
 ## Installation instructions
 * Navigate to EventsBack-End directory and run `EventApplication.java` to start backend server.
 * Navigate to Front-End directory and run `npm run dev` to start frontend server.
-
-## Known issues
-## Roadmap features
-## Credits
